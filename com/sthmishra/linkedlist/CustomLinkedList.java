@@ -31,6 +31,29 @@ public class CustomLinkedList<T> implements Iterable<T> {
         }
     }
 
+    public void addAt(int K, T data) {
+        Node<T> temp = head;
+        Node<T> newNode = new Node<>(data);
+        if(temp == null) {
+            head = newNode;
+        }
+        else {
+            if(K <= 0) addFirst(data);
+            else if(K >= this.size()) addLast(data);
+            else {
+                int i = 0;
+                while(temp != null && i < K-1) {
+                    temp = temp.next;
+                    i++;
+                }
+                if(temp != null) {
+                    newNode.next = temp.next;
+                    temp.next = newNode;
+                }
+            }
+        }
+    }
+
     public int size() {
         Node<T> temp = head;
         int totalSize = 0;

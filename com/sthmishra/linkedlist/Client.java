@@ -11,11 +11,11 @@ public class Client {
         ll1.addFirst(0);
         ll1.addLast(4);
 
-        System.out.println("Total length of linked list ll1: " + ll1.size());
+//        System.out.println("Total length of linked list ll1: " + ll1.size());
 
-        for(int el : ll1) {
-            System.out.println(el);
-        }
+//        for(int el : ll1) {
+//            System.out.println(el);
+//        }
 
         // string linked list
         CustomLinkedList<String> ll2 = new CustomLinkedList<>();
@@ -29,6 +29,11 @@ public class Client {
 
         System.out.println("Total length of linked list ll2: " + ll2.size());
 
+        ll2.addAt(2, "Mary");
+
+        for(String el : ll2) {
+            System.out.println(el);
+        }
 
     }
 }
