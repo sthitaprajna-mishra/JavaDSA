@@ -35,5 +35,19 @@ public class Client {
             System.out.println(el);
         }
 
+        System.out.println("Total length of linked list ll2: " + ll2.size());
+
+        ll2.removeAt(2);
+
+        ll2.add("Sheldon");
+        ll2.add("Louis");
+
+        Node<String> head = ll2.reverse();
+
+        while(head != null) {
+            System.out.println(head.data);
+            head = head.next;
+        }
+
     }
 }

@@ -54,6 +54,58 @@ public class CustomLinkedList<T> implements Iterable<T> {
         }
     }
 
+    public void removeFirst() {
+        Node<T> temp = head;
+        if(temp == null) return;
+        head = head.next;
+    }
+
+    public void removeLast() {
+        Node<T> temp = head;
+        if(temp == null) return;
+        if(temp.next == null) {
+            head = null;
+            return;
+        }
+        while(temp.next.next != null) {
+            temp = temp.next;
+        }
+        temp.next = null;
+    }
+
+    public void removeAt(int K) {
+        Node<T> temp = head;
+        if(temp == null) return;
+
+        if(K <= 0) removeFirst();
+        else if(K >= this.size()) removeLast();
+        else {
+            int i = 0;
+            while(temp != null && i < K-1) {
+                temp = temp.next;
+                i++;
+            }
+            if(temp != null) {
+                temp.next = temp.next.next;
+            }
+        }
+
+    }
+
+    public Node<T> reverse() {
+        Node<T> temp;
+        Node<T> prev = null;
+        Node<T> curr = head;
+        while(curr != null) {
+            temp = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = temp;
+        }
+        head = prev;
+        return head;
+    }
+
     public int size() {
         Node<T> temp = head;
         int totalSize = 0;
