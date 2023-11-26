@@ -2,7 +2,7 @@ package com.sthmishra.linkedlist;
 
 import java.util.Iterator;
 
-public class CustomLinkedList<T> implements Iterable<T> {
+public class CustomLinkedList<T extends Comparable<T>> implements Iterable<T> {
     Node<T> head;
 
     public void addFirst(T data) {
@@ -114,6 +114,64 @@ public class CustomLinkedList<T> implements Iterable<T> {
             totalSize++;
         }
         return totalSize;
+    }
+
+    public Node<T> middle() {
+        Node<T> slow = head;
+        Node<T> fast = head;
+        while(fast.next != null && fast.next.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        return slow;
+    }
+
+    public Node<T> middle(Node<T> paramHead) {
+        Node<T> slow = paramHead;
+        Node<T> fast = paramHead;
+        while(fast.next != null && fast.next.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        return slow;
+    }
+
+    public void sort() {
+        head = mergeSort(head);
+    }
+
+    public Node<T> mergeSort(Node<T> head) {
+        if (head == null || head.next == null) return head;
+
+        Node<T> mid = middle(head);
+        Node<T> head2 = mid.next;
+        mid.next = null;
+
+        head = mergeSort(head);
+        head2 = mergeSort(head2);
+
+        return merge(head, head2);
+    }
+
+    public Node<T> merge(Node<T> head, Node<T> head2) {
+        Node<T> h3 = new Node<>(null);
+        Node<T> tail = h3;
+
+        while (head != null && head2 != null) {
+            if (head.data.compareTo(head2.data) <= 0) {
+                tail.next = head;
+                head = head.next;
+            } else {
+                tail.next = head2;
+                head2 = head2.next;
+            }
+            tail = tail.next;
+        }
+
+        if (head != null) tail.next = head;
+        if (head2 != null) tail.next = head2;
+
+        return h3.next;
     }
 
     @Override
