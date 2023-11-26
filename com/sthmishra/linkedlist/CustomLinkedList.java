@@ -55,8 +55,7 @@ public class CustomLinkedList<T extends Comparable<T>> implements Iterable<T> {
     }
 
     public void removeFirst() {
-        Node<T> temp = head;
-        if(temp == null) return;
+        if(head == null) return;
         head = head.next;
     }
 
