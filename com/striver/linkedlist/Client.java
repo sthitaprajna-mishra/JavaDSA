@@ -34,17 +34,33 @@ public class Client {
 
 //        ********** L6. Odd Even Linked List | Multiple Approaches **********
 
-        Node head = new Node(1);
-        head.next = new Node(2);
-        head.next.next = new Node(3);
-        head.next.next.next = new Node(4);
-        head.next.next.next.next = new Node(5);
+//        Node head = new Node(1);
+//        head.next = new Node(2);
+//        head.next.next = new Node(3);
+//        head.next.next.next = new Node(4);
+//        head.next.next.next.next = new Node(5);
 
 //        1 -> 3 -> 5 -> 2 -> 4
 
-        Node result = s.oddEven(head);
+//        Node result = s.oddEven(head);
+
+//        s.traverse(result);
+
+//    ********** L7. Sort a LinkedList of 0's, 1's and 2's | Multiple Approaches **********
+
+        Node head = new Node(1);
+        head.next = new Node(2);
+        head.next.next = new Node(0);
+        head.next.next.next = new Node(0);
+        head.next.next.next.next = new Node(2);
+        head.next.next.next.next.next = new Node(1);
+        head.next.next.next.next.next.next = new Node(2);
+        head.next.next.next.next.next.next.next = new Node(0);
+
+//        0 -> 0 -> 0 -> 1 -> 1 -> 2 -> 2 -> 2
+
+        Node result = s.sortSpecial(head);
 
         s.traverse(result);
-
     }
 }

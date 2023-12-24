@@ -97,4 +97,69 @@ public class Service {
 
         return head;
     }
+
+//    ********** L7. Sort a LinkedList of 0's, 1's and 2's | Multiple Approaches **********
+    public Node sortSpecial(Node head) {
+        if(head == null || head.next == null) return head;
+
+        Node temp = head, zero = new Node(-1), one = new Node(-1), two = new Node(-1);
+        Node zeroTail = zero, oneTail = one, twoTail = two;
+
+        while(temp != null) {
+            if(temp.data == 0) {
+                zeroTail.next = temp;
+                zeroTail = zeroTail.next;
+            }
+            else if(temp.data == 1) {
+                oneTail.next = temp;
+                oneTail = oneTail.next;
+            }
+            else if(temp.data == 2) {
+                twoTail.next = temp;
+                twoTail = twoTail.next;
+            }
+
+            temp = temp.next;
+        }
+
+        zeroTail.next = one.next != null ? one.next : two.next;
+        oneTail.next = two.next;
+        twoTail.next = null;
+
+        return zero.next;
+    }
+    public Node sortSpecialBruteForce(Node head) {
+        if(head == null || head.next == null) return head;
+
+        int count0 = 0, count1 = 0, count2 = 0;
+        Node temp = head;
+
+        while(temp != null) {
+            if(temp.data == 0) count0++;
+            else if(temp.data == 1) count1++;
+            else if(temp.data == 2) count2++;
+
+            temp = temp.next;
+        }
+
+        temp = head;
+
+        while(temp != null) {
+            if(count0 > 0) {
+                temp.data = 0;
+                count0--;
+            }
+            else if(count1 > 0) {
+                temp.data = 1;
+                count1--;
+            }
+            else if(count2 > 0) {
+                temp.data = 2;
+                count2--;
+            }
+            temp = temp.next;
+        }
+
+        return head;
+    }
 }
