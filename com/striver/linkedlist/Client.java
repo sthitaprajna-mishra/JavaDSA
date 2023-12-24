@@ -2,13 +2,17 @@ package com.striver.linkedlist;
 
 public class Client {
     public static void main(String[] args) {
-        Node head1 = new Node(3);
-        head1.next = new Node(5);
+        Service s = new Service();
 
-        Node head2 = new Node(4);
-        head2.next = new Node(5);
-        head2.next.next = new Node(9);
-        head2.next.next.next = new Node(9);
+//        ********** L5. Add 2 numbers in LinkedList | Dummy Node Approach **********
+
+//        Node head1 = new Node(3);
+//        head1.next = new Node(5);
+//
+//        Node head2 = new Node(4);
+//        head2.next = new Node(5);
+//        head2.next.next = new Node(9);
+//        head2.next.next.next = new Node(9);
 
 //        7 -> 0 -> 0 -> 0 -> 1
 
@@ -24,8 +28,21 @@ public class Client {
 
 //        8 -> 0 -> 2 -> 2
 
-        Service s = new Service();
-        Node result = s.addTwoNumbers(head1, head2);
+//        Node result = s.addTwoNumbers(head1, head2);
+//
+//        s.traverse(result);
+
+//        ********** L6. Odd Even Linked List | Multiple Approaches **********
+
+        Node head = new Node(1);
+        head.next = new Node(2);
+        head.next.next = new Node(3);
+        head.next.next.next = new Node(4);
+        head.next.next.next.next = new Node(5);
+
+//        1 -> 3 -> 5 -> 2 -> 4
+
+        Node result = s.oddEven(head);
 
         s.traverse(result);
 
