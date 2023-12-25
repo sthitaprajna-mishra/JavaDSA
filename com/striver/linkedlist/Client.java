@@ -48,19 +48,42 @@ public class Client {
 
 //    ********** L7. Sort a LinkedList of 0's, 1's and 2's | Multiple Approaches **********
 
-        Node head = new Node(1);
-        head.next = new Node(2);
-        head.next.next = new Node(0);
-        head.next.next.next = new Node(0);
-        head.next.next.next.next = new Node(2);
-        head.next.next.next.next.next = new Node(1);
-        head.next.next.next.next.next.next = new Node(2);
-        head.next.next.next.next.next.next.next = new Node(0);
+//        Node head = new Node(1);
+//        head.next = new Node(2);
+//        head.next.next = new Node(0);
+//        head.next.next.next = new Node(0);
+//        head.next.next.next.next = new Node(2);
+//        head.next.next.next.next.next = new Node(1);
+//        head.next.next.next.next.next.next = new Node(2);
+//        head.next.next.next.next.next.next.next = new Node(0);
 
 //        0 -> 0 -> 0 -> 1 -> 1 -> 2 -> 2 -> 2
 
-        Node result = s.sortSpecial(head);
+//        Node result = s.sortSpecial(head);
+//
+//        s.traverse(result);
 
-        s.traverse(result);
+//        Node head = new Node(6);
+//        head.next = new Node(8);
+//        head.next.next = new Node(2);
+//        head.next.next.next = new Node(5);
+//        head.next.next.next.next = new Node(3);
+//        head.next.next.next.next.next = new Node(4);
+//        head.next.next.next.next.next.next = new Node(1);
+
+//        6 -> 8 -> 2 -> 5 -> 3 -> 1
+
+//        Node result = s.removeFromEnd(head, 2);
+
+//        s.traverse(result);
+
+        Node head = new Node(1);
+        head.next = new Node(2);
+        head.next.next = new Node(3);
+        head.next.next.next = new Node(3);
+        head.next.next.next.next = new Node(2);
+        head.next.next.next.next.next = new Node(1);
+
+        System.out.println(s.checkPalindrome(head));
     }
 }

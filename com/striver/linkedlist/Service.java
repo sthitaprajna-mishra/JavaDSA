@@ -162,4 +162,114 @@ public class Service {
 
         return head;
     }
+
+//    L8. Remove Nth Node from the end of the LinkedList | Multiple Approaches
+    public Node removeFromEnd(Node head, int N) {
+        Node fast = head, slow = head;
+        int i = N;
+
+        while(fast != null && i != 0) {
+            fast = fast.next;
+            i--;
+        }
+
+        while(fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next;
+        }
+
+        if(fast == null) {
+            head = head.next;
+            return head;
+        }
+
+        slow.next = slow.next.next;
+
+        return head;
+    }
+    public Node removeFromEndBruteForce(Node head, int N) {
+        int totalLength = 0;
+        Node temp = head;
+
+        while(temp != null) {
+            temp = temp.next;
+            totalLength++;
+        }
+
+        temp = head;
+        int prevIndex = 1;
+
+        while(temp != null && prevIndex < totalLength-N) {
+            temp = temp.next;
+            prevIndex++;
+        }
+
+        if(temp != null && temp.next != null) {
+            temp.next = temp.next.next;
+        }
+
+        return head;
+    }
+
+//    L10. Check if a LinkedList is Palindrome or Not | Multiple Approaches
+    // optimized approach requires 2 auxiliary functions - findMiddle() and reverse()
+    public boolean checkPalindrome(Node head) {
+        Node temp = head;
+        Node mid = findMiddle(head);
+        Node reversedStart = reverse(mid);
+        Node temp2 = reversedStart;
+
+        while(temp != null && temp2 != null) {
+            if(temp.data != temp2.data) return false;
+            temp = temp.next;
+            temp2 = temp2.next;
+        }
+
+        reverse(reversedStart);
+        return true;
+    }
+    public Node findMiddle(Node head) {
+        Node slow = head, fast = head;
+
+        while(fast.next != null && fast.next.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+
+        return slow;
+    }
+    public Node reverse(Node head) {
+        Node prev = null, curr = head, temp = null;
+
+        while(curr != null) {
+            temp = curr.next;
+            curr.next = prev;
+
+            prev = curr;
+            curr = temp;
+        }
+
+        head = prev;
+
+        return head;
+    }
+    public boolean checkPalindromeBruteForce(Node head) {
+        Stack<Integer> stack = new Stack<>();
+        Node temp = head;
+
+        while(temp != null) {
+            stack.push(temp.data);
+            temp = temp.next;
+        }
+
+        temp = head;
+
+        while(temp != null) {
+            int data = stack.pop();
+            if(data != temp.data) return false;
+            temp = temp.next;
+        }
+
+        return true;
+    }
 }
