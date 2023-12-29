@@ -15,6 +15,18 @@ public class Service {
         System.out.print(temp.data);
     }
 
+//    L1. Introduction to LinkedList | Traversal | Length | Search an Element
+    public Node convertArrToLL(int[] arr) {
+        Node head = new Node(arr[0]);
+        Node temp = head;
+        for(int i = 1; i < arr.length; i++) {
+            temp.next = new Node(arr[i]);
+            temp = temp.next;
+        }
+        return head;
+    }
+
+
 //    ********** L5. Add 2 numbers in LinkedList | Dummy Node Approach **********
     public Node addTwoNumbers(Node head1, Node head2) {
         Node temp1 = head1, temp2 = head2;
