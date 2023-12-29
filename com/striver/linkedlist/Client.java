@@ -77,13 +77,17 @@ public class Client {
 
 //        s.traverse(result);
 
-        Node head = new Node(1);
-        head.next = new Node(2);
-        head.next.next = new Node(3);
-        head.next.next.next = new Node(3);
-        head.next.next.next.next = new Node(2);
-        head.next.next.next.next.next = new Node(1);
+//        Node head = new Node(1);
+//        head.next = new Node(2);
+//        head.next.next = new Node(3);
+//        head.next.next.next = new Node(3);
+//        head.next.next.next.next = new Node(2);
+//        head.next.next.next.next.next = new Node(1);
 
-        System.out.println(s.checkPalindrome(head));
+//        System.out.println(s.checkPalindrome(head));
+
+        int[] arr = new int[] {12, 5, 6, 8};
+        Node result = s.convertArrToLL(arr);
+        s.traverse(result);
     }
 }
