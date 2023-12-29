@@ -272,4 +272,44 @@ public class Service {
 
         return true;
     }
+//    L12. Find the intersection point of Y LinkedList
+    public Node findIntersectionPoint(Node head1, Node head2) {
+        Node temp1 = head1, temp2 = head2;
+        int length1 = 0, length2 = 0;
+
+        while(temp1 != null) {
+            length1++;
+            temp1 = temp1.next;
+        }
+        while(temp2 != null) {
+            length2++;
+            temp2 = temp2.next;
+        }
+
+        temp1 = head1;
+        temp2 = head2;
+
+        int diff = Math.max(length1, length2) - Math.min(length1, length2);
+
+        if(length1 < length2) {
+            while(diff > 0) {
+                diff--;
+                temp2 = temp2.next;
+            }
+        }
+        if(length1 > length2) {
+            while(diff > 0) {
+                diff--;
+                temp1 = temp1.next;
+            }
+        }
+
+        while(temp1 != null && temp2 != null) {
+            if(temp1 == temp2) return temp1;
+            temp1 = temp1.next;
+            temp2 = temp2.next;
+        }
+
+        return null;
+    }
 }
