@@ -83,11 +83,74 @@ public class Client {
 //        head.next.next.next = new Node(3);
 //        head.next.next.next.next = new Node(2);
 //        head.next.next.next.next.next = new Node(1);
-
+//
 //        System.out.println(s.checkPalindrome(head));
 
-        int[] arr = new int[] {12, 5, 6, 8};
-        Node result = s.convertArrToLL(arr);
-        s.traverse(result);
+//        int[] arr = new int[] {12, 5, 6, 8};
+//        Node result = s.convertArrToLL(arr);
+//        s.traverse(result);
+
+        Node head1 = new Node(9);
+        head1.next = new Node(9);
+        head1.next.next = new Node(9);
+        head1.next.next.next = new Node(9);
+        s.traverse(addOne(head1));
+    }
+
+    public static Node addOne(Node head)
+    {
+        Node revHead = reverse(head);
+        Node secondHead = new Node(1);
+
+        return addTwoNumbers(revHead, secondHead);
+    }
+
+    public static Node addTwoNumbers(Node head1, Node head2) {
+        Node temp1 = head1, temp2 = head2;
+        Node head3 = new Node(-1);
+        Node tail = head3;
+
+        int carry = 0;
+
+        while(temp1 != null || temp2 != null) {
+            int sum = carry;
+
+            if(temp1 != null) sum += temp1.data;
+            if(temp2 != null) sum += temp2.data;
+
+            carry = sum/10;
+            sum %= 10;
+
+            tail.next = new Node(sum);
+            tail = tail.next;
+
+            if(temp1 != null) temp1 = temp1.next;
+            if(temp2 != null) temp2 = temp2.next;
+        }
+
+        if(carry != 0) {
+            tail.next = new Node(carry);
+            tail = tail.next;
+        }
+
+        Node sumNode = head3.next;
+        head3.next = null;
+
+        return reverse(sumNode);
+    }
+
+    public static Node reverse(Node head) {
+        Node temp = null, prev = null, curr = head;
+
+        while(curr != null) {
+            temp = curr.next;
+            curr.next = prev;
+
+            prev = curr;
+            curr = temp;
+        }
+
+        head = prev;
+        return head;
     }
 }
