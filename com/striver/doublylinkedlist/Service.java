@@ -110,4 +110,27 @@ public class Service {
         temp.prev = newNode;
         return head;
     }
+
+    //    L18. Delete all occurrences of a Key in DLL
+    public Node deleteAllKNodes(Node head, int K) {
+        if(head == null) return null;
+
+        Node temp = head;
+        while(temp != null) {
+            if(temp.data == K) {
+                Node nextNode = temp.next;
+                Node prevNode = temp.prev;
+
+                if(temp == head) {
+                    head = nextNode;
+                }
+
+                if(prevNode != null) prevNode.next = nextNode;
+                if(nextNode != null) nextNode.prev = prevNode;
+            }
+            temp = temp.next;
+        }
+
+        return head;
+    }
 }
