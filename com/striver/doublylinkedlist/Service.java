@@ -133,4 +133,27 @@ public class Service {
 
         return head;
     }
+
+//    L19. Find all Pairs with given Sum in DLL
+    // this approach will work only if the DLL is sorted
+    public void findPairSum(Node head, int K) {
+        Node temp1 = head, temp2 = head;
+        while(temp2.next != null) {
+            temp2 = temp2.next;
+        }
+        while(temp1.data < temp2.data) {
+            int sum = temp1.data + temp2.data;
+            if(sum == K) {
+                System.out.println(temp1.data  + ", " + temp2.data);
+                temp1 = temp1.next;
+                temp2 = temp2.prev;
+            }
+            else if(sum < K) {
+                temp1 = temp1.next;
+            }
+            else {
+                temp2 = temp2.prev;
+            }
+        }
+    }
 }
