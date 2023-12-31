@@ -284,6 +284,7 @@ public class Service {
 
         return true;
     }
+
 //    L12. Find the intersection point of Y LinkedList
     public Node findIntersectionPoint(Node head1, Node head2) {
         Node temp1 = head1, temp2 = head2;
@@ -325,5 +326,29 @@ public class Service {
         return null;
     }
 
+//    L16. Delete the middle node of the LinkedList
+    public Node deleteMiddle(Node head) {
+        if(head == null || head.next == null) {
+            return new Node(-1);
+        }
 
+        Node slow = head, fast = head, prev = null;
+
+        while(fast.next != null && fast.next.next != null) {
+            fast = fast.next.next;
+            prev = slow;
+            slow = slow.next;
+        }
+
+        // odd
+        if(fast.next == null) {
+            prev.next = slow.next;
+            slow.next = null;
+        }
+
+        // even
+        if(slow.next != null) slow.next = slow.next.next;
+
+        return head;
+    }
 }

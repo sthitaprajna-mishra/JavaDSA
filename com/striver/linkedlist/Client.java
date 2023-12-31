@@ -90,11 +90,13 @@ public class Client {
 //        Node result = s.convertArrToLL(arr);
 //        s.traverse(result);
 
-        Node head1 = new Node(9);
-        head1.next = new Node(9);
-        head1.next.next = new Node(9);
-        head1.next.next.next = new Node(9);
-        s.traverse(addOne(head1));
+        Node head1 = new Node(1);
+        head1.next = new Node(2);
+        head1.next.next = new Node(3);
+        head1.next.next.next = new Node(4);
+        head1.next.next.next.next = new Node(5);
+
+        s.traverse(s.deleteMiddle(head1));
     }
 
     public static Node addOne(Node head)
