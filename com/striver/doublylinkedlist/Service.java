@@ -156,4 +156,27 @@ public class Service {
             }
         }
     }
+
+//    L20. Remove duplicates from sorted DLL
+    public Node removeDuplicates(Node head) {
+        if(head == null) return null;
+        Node temp = head;
+
+        while(temp != null) {
+            Node nextNode = temp.next;
+            Node prevNode = temp.prev;
+
+            if(nextNode != null && temp.data == nextNode.data) {
+                if(temp == head) {
+                    head = nextNode;
+                }
+                if(prevNode != null) prevNode.next = nextNode;
+                nextNode.prev = prevNode;
+            }
+
+            temp = temp.next;
+        }
+
+        return head;
+    }
 }

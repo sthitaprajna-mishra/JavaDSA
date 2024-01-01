@@ -29,22 +29,42 @@ public class Client {
 //        s.traverse(s.deleteAllKNodes(head, 8));
 
 //        L19. Find all Pairs with given Sum in DLL
-        Node head = new Node(1);
-        Node secondNode = new Node(2, null, head);
-        Node thirdNode = new Node(3, null, secondNode);
-        Node fourthNode = new Node(4, null, thirdNode);
-        Node fifthNode = new Node(5, null, fourthNode);
-        Node sixthNode = new Node(7, null, fifthNode);
-        Node seventhNode = new Node(8, null, sixthNode);
+//        Node head = new Node(1);
+//        Node secondNode = new Node(2, null, head);
+//        Node thirdNode = new Node(3, null, secondNode);
+//        Node fourthNode = new Node(4, null, thirdNode);
+//        Node fifthNode = new Node(5, null, fourthNode);
+//        Node sixthNode = new Node(7, null, fifthNode);
+//        Node seventhNode = new Node(8, null, sixthNode);
+//
+//        head.next = secondNode;
+//        secondNode.next = thirdNode;
+//        thirdNode.next = fourthNode;
+//        fourthNode.next = fifthNode;
+//        fifthNode.next = sixthNode;
+//        sixthNode.next = seventhNode;
+//
+//
+//        s.findPairSum(head, 5);
 
-        head.next = secondNode;
-        secondNode.next = thirdNode;
-        thirdNode.next = fourthNode;
-        fourthNode.next = fifthNode;
-        fifthNode.next = sixthNode;
-        sixthNode.next = seventhNode;
+//        L20. Remove duplicates from sorted DLL
 
-
-        s.findPairSum(head, 5);
+//        Node head = new Node(1);
+//        Node secondNode = new Node(1, null, head);
+//        Node thirdNode = new Node(2, null, secondNode);
+//        Node fourthNode = new Node(3, null, thirdNode);
+//        Node fifthNode = new Node(3, null, fourthNode);
+//        Node sixthNode = new Node(3, null, fifthNode);
+//        Node seventhNode = new Node(5, null, sixthNode);
+//
+//        head.next = secondNode;
+//        secondNode.next = thirdNode;
+//        thirdNode.next = fourthNode;
+//        fourthNode.next = fifthNode;
+//        fifthNode.next = sixthNode;
+//        sixthNode.next = seventhNode;
+//
+//
+//        s.traverse(s.removeDuplicates(head));
     }
 }
