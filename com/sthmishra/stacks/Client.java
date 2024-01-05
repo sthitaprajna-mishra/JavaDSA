@@ -1,5 +1,7 @@
 package com.sthmishra.stacks;
 
+import java.util.HashMap;
+
 public class Client {
     public static void main(String[] args) {
 //        String s = "((((()(()()()*()(((((*)()*(**(())))))(())()())(((())())())))))))(((((())*)))()))(()((*()*(*)))(*)()";
@@ -16,6 +18,5 @@ public class Client {
         int[] arr = new int[] {34, 35, 27, 42, 5, 28, 39, 20, 28};
         int[] ans = s.nearestSmallerElement(arr);
         for(int el : ans) System.out.print(el + " ");
-
     }
 }
