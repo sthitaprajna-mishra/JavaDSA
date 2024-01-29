@@ -1,10 +1,11 @@
 package com.sthmishra.reflection.john;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 public class Test {
-    public static void main(String[] args) throws IllegalAccessException {
+    public static void main(String[] args) throws IllegalAccessException, InvocationTargetException {
         Cat myCat = new Cat("Stella", 6);
 
         Field[] catFields = myCat.getClass().getDeclaredFields();
@@ -25,6 +26,10 @@ public class Test {
         Method[] catMethods = myCat.getClass().getDeclaredMethods();
         for(Method method : catMethods) {
             System.out.println(method.getName());
+            if(method.getName().equals("myPrivMethod")) {
+                method.setAccessible(true);
+                method.invoke(myCat);
+            }
         }
 
     }
