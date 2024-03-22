@@ -16,5 +16,10 @@ public class Test1 {
         // AND
         System.out.println(isEven.and(greaterThan10).test(6));
 
+        // NEGATE
+        System.out.println(isEven.negate().test(2));
+
+        // ISEQUAL
+        System.out.println(Predicate.isEqual(2).test(6));
     }
 }
