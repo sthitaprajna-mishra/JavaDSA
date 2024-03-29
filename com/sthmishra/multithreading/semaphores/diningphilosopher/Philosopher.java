@@ -2,33 +2,34 @@ package com.sthmishra.multithreading.semaphores.diningphilosopher;
 
 import java.util.concurrent.Semaphore;
 
-public class Philosopher implements Runnable {
+public class Philosopher {
     private Semaphore sem;
     private boolean isFull = false;
     public String name;
 
-    public Philosopher(Semaphore sem, String name) {
+    Philosopher(Semaphore sem, String name) {
         this.sem = sem;
         this.name = name;
     }
 
-    @Override
-    public void run() {
+    public void startDining() {
         try {
             if(!isFull) {
                 sem.acquire();
-                System.out.println(name + " is now sitting down to eat");
-                Thread.sleep(1000);
-                // done eating, so now full
+                System.out.println(name + " starts dining");
+
+                Thread.sleep(500);
                 isFull = true;
-                // leave room for others
-                System.out.println(name + " is finished");
+
+                System.out.println(name + " finished dining");
                 sem.release();
-                Thread.sleep(1000);
+
+                Thread.sleep(500);
             }
         } catch(InterruptedException ex) {
-            System.out.println("Something went wrong...");
+            System.out.println("Oops! Something went wrong...");
             System.out.println(ex.getMessage());
         }
     }
+
 }

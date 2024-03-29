@@ -8,22 +8,19 @@ import java.util.concurrent.Semaphore;
 
 public class DiningTable {
     public static void main(String[] args) {
-        Semaphore sem = new Semaphore(2);
-        ExecutorService executorService = Executors.newFixedThreadPool(5);
+        ExecutorService fixedThreadPool = Executors.newFixedThreadPool(5);
 
         List<String> philosopherNames = Arrays.asList(
-                "Chanakya",
-                "Aryabhatta",
-                "Adi Shankaracharya",
-                "Swami Vivekananda",
-                "Gautama Buddha");
+                "A", "B", "C", "D", "E");
 
-        for(String philosopherName : philosopherNames) {
-            executorService.execute(() -> {
-                new Philosopher(sem, philosopherName).run();
+        Semaphore sem = new Semaphore(2);
+
+
+        for(String name : philosopherNames) {
+            fixedThreadPool.execute(() -> {
+                new Philosopher(sem, name).startDining();
             });
         }
 
-        executorService.shutdown();
     }
 }
